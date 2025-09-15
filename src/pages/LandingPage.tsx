@@ -76,50 +76,48 @@ const LandingPage: React.FC = () => {
       <section className="py-20 px-4">
         <div className="container mx-auto max-w-6xl text-center">
           <div className="animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-              Transform YouTube chaos into
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+              Transform YouTube into
               <span className="block bg-gradient-to-r from-primary to-success bg-clip-text text-transparent">
-                structured mastery
+                Structured Courses
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-16 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-12 max-w-2xl mx-auto">
               Turn chaotic YouTube tutorials into organized learning paths with AI-powered curation, 
               interactive quizzes, and progress tracking.
             </p>
           </div>
 
           {/* Search Box */}
-          <div className="hero-search-container animate-scale-in mb-12">
-            <div className="hero-search-box">
-              <div className="flex items-center">
-                <Search className="w-7 h-7 text-muted-foreground ml-8" />
-                <Input
-                  className="hero-search-input"
-                  placeholder="What do you want to learn? (e.g., PowerBI for beginners)"
-                  value={localSearchQuery}
-                  onChange={(e) => setLocalSearchQuery(e.target.value)}
-                  onKeyPress={handleKeyPress}
-                />
-                <Button 
-                  onClick={handleGenerateCourse}
-                  className="hero-search-button"
-                  disabled={!localSearchQuery.trim()}
-                >
-                  Generate Course
-                </Button>
-              </div>
+          <div className="hero-search-box animate-scale-in mb-8">
+            <div className="flex items-center">
+              <Search className="w-6 h-6 text-muted-foreground ml-6" />
+              <Input
+                className="hero-search-input"
+                placeholder="What do you want to learn? (e.g., PowerBI for beginners)"
+                value={localSearchQuery}
+                onChange={(e) => setLocalSearchQuery(e.target.value)}
+                onKeyPress={handleKeyPress}
+              />
+              <Button 
+                onClick={handleGenerateCourse}
+                className="hero-search-button"
+                disabled={!localSearchQuery.trim()}
+              >
+                Generate Course
+              </Button>
             </div>
           </div>
 
           {/* Quick Examples */}
-          <div className="flex flex-wrap justify-center gap-3 mb-20">
+          <div className="flex flex-wrap justify-center gap-2 mb-16">
             {['React for beginners', 'Python data science', 'Digital marketing'].map((example) => (
               <Button
                 key={example}
                 variant="secondary"
                 size="sm"
                 onClick={() => setLocalSearchQuery(example)}
-                className="example-pill"
+                className="text-sm hover:bg-primary/10 hover:text-primary"
               >
                 {example}
               </Button>
