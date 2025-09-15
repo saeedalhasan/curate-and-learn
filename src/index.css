@@ -135,42 +135,68 @@
 }
 
 @layer components {
-  /* Hero Search Box */
+  /* Hero Search Container */
+  .hero-search-container {
+    @apply w-full max-w-4xl mx-auto;
+  }
+
+  /* Hero Search Box - Google Style */
   .hero-search-box {
-    @apply w-full max-w-2xl mx-auto relative;
-    @apply bg-card border border-input rounded-xl;
+    @apply w-full relative;
+    @apply bg-card border-2 border-input rounded-full;
     @apply shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)];
     @apply transition-[var(--transition-smooth)];
+    @apply hover:border-primary/30 focus-within:border-primary/50 focus-within:shadow-[var(--shadow-focus)];
+    @apply transform hover:scale-[1.02] focus-within:scale-[1.02];
   }
 
   .hero-search-input {
-    @apply w-full px-6 py-4 text-lg bg-transparent border-0;
+    @apply w-full px-8 py-6 text-xl bg-transparent border-0 rounded-full;
     @apply placeholder:text-muted-foreground focus:outline-none focus:ring-0;
     @apply font-medium;
   }
 
   .hero-search-button {
-    @apply absolute right-3 top-1/2 -translate-y-1/2;
+    @apply absolute right-4 top-1/2 -translate-y-1/2;
     @apply bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--success))];
-    @apply text-white px-6 py-2 rounded-lg font-medium;
-    @apply hover:shadow-[var(--shadow-hover)] transition-[var(--transition-smooth)];
-    @apply transform hover:scale-105;
+    @apply text-white px-8 py-3 rounded-full font-semibold text-lg;
+    @apply hover:shadow-[0_8px_25px_-8px_hsl(var(--primary)/0.3)];
+    @apply transition-[var(--transition-smooth)];
+    @apply transform hover:scale-105 active:scale-95;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+  }
+
+  /* Example Pills */
+  .example-pill {
+    @apply px-4 py-2 rounded-full text-sm font-medium;
+    @apply bg-secondary/50 text-secondary-foreground;
+    @apply border border-border/50;
+    @apply hover:bg-primary/10 hover:text-primary hover:border-primary/20;
+    @apply transition-[var(--transition-smooth)];
+    @apply transform hover:scale-105 hover:-translate-y-0.5;
   }
 
   /* Feature Cards */
   .feature-card {
     @apply bg-gradient-to-br from-card to-card-hover;
-    @apply border border-border rounded-xl p-6;
+    @apply border border-border rounded-2xl p-8;
     @apply shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-hover)];
     @apply transition-[var(--transition-smooth)];
-    @apply hover:-translate-y-1;
+    @apply hover:-translate-y-2 hover:scale-[1.02];
+    @apply cursor-default;
   }
 
   .feature-icon {
-    @apply w-12 h-12 rounded-lg mb-4;
-    @apply bg-gradient-to-br from-[hsl(var(--primary)/0.1)] to-[hsl(var(--success)/0.1)];
+    @apply w-16 h-16 rounded-2xl mb-6;
+    @apply bg-gradient-to-br from-[hsl(var(--primary)/0.15)] to-[hsl(var(--success)/0.15)];
     @apply flex items-center justify-center;
-    @apply text-primary;
+    @apply text-primary border-2 border-primary/10;
+    @apply transition-[var(--transition-smooth)];
+  }
+
+  .feature-card:hover .feature-icon {
+    @apply transform scale-110 rotate-3;
+    @apply border-primary/20;
   }
 
   /* Module Cards */
